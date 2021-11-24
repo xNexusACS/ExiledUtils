@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Exiled.API.Features;
 using ExiledUtils.Enums;
 using PlayerHandler = Exiled.Events.Handlers.Player;
@@ -41,8 +41,6 @@ namespace ExiledUtils
         }
         public override void OnDisabled()
         {
-            Ev = null;
-
             PlayerHandler.UsingRadioBattery -= Ev.OnUsingRadioBattery;
             PlayerHandler.Hurting -= Ev.OnHurting;
             PlayerHandler.FlippingCoin -= Ev.OnFlippingCoin;
