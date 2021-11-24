@@ -51,7 +51,8 @@ namespace ExiledUtils
             SCP106Handler.Containing -= Ev.OnContaining106;
             SCP173Handler.PlacingTantrum -= Ev.OnPlacingTantrum;
             SCP914Handler.Activating -= Ev.OnActivating914;
-
+            
+            Ev = null;
             base.OnDisabled();
         }
     }
