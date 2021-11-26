@@ -38,3 +38,11 @@ EFFECT: Hemorrhage
 - LogicerDMG : float
 - AKDMG : float
 - FragGrenadeDMG : float
+
+## Infinite Ammo
+- InfiniteAmmoEnable : bool
+
+## AddingTargetConfig
+- TargetHint : string
+- Scp096Hint : string
+- HintsDuration : float
