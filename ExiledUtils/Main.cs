@@ -51,7 +51,7 @@ namespace ExiledUtils
             PlayerHandler.WalkingOnSinkhole -= Ev.OnWalkingOnSinkhole;
             PlayerHandler.WalkingOnTantrum -= Ev.OnWalkingOnTantrum;
             PlayerHandler.Shooting -= Ev.OnShooting;
-            PlayerHandler.UsingMicroHIDEnergy += Ev.OnUsingMicroEnergy;
+            PlayerHandler.UsingMicroHIDEnergy -= Ev.OnUsingMicroEnergy;
             ServerHandler.RoundStarted -= Ev.OnRoundStarted;
             ServerHandler.RoundEnded -= Ev.OnRoundEnded;
             SCP106Handler.Containing -= Ev.OnContaining106;
