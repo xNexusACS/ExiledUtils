@@ -46,3 +46,6 @@ EFFECT: Hemorrhage
 - TargetHint : string
 - Scp096Hint : string
 - HintsDuration : float
+
+## UnlimitedMicro
+- UnlimitedMicroHID : bool
