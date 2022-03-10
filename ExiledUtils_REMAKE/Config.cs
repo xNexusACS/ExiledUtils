@@ -1,5 +1,6 @@
 ﻿using Exiled.API.Interfaces;
 using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace ExiledUtils_REMAKE
 {
@@ -25,5 +26,11 @@ namespace ExiledUtils_REMAKE
         public float CoinHintDuration { get; set; } = 5f;
         public bool EnableEffectMovementBoost { get; set; } = true;
         public float EffectDuration { get; set; } = 5f;
+        [Description("ReservedSlots")]
+        public List<string> ReservedGroups { get; set; } = new List<string>()
+        {
+            "owner", "admin", "moderator", "donator"
+        };
+
     }
 }

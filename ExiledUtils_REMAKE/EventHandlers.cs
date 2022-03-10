@@ -1,6 +1,8 @@
 ﻿using Exiled.Events.EventArgs;
 using Exiled.API.Features.Items;
 using Exiled.API.Enums;
+using Exiled.API.Features;
+using Exiled.API.Extensions;
 
 namespace ExiledUtils_REMAKE
 {
@@ -50,6 +52,15 @@ namespace ExiledUtils_REMAKE
             {
                 ev.IsAllowed = false;
             }
+        }
+        public void OnPreAuthenticating(PreAuthenticatingEventArgs ev)
+        {
+            var group = Server.PermissionsHandler.GetUserGroup(ev.UserId);
+            if (group == null) return;
+
+            bool reserved = plugin.Config.ReservedGroups.Contains(group.GetKey());
+            if (reserved) ev.IsAllowed = true;
+            Log.Debug($"{ev.UserId}: {group.GetKey()} | {reserved}", plugin.Config.DebugLogs);
         }
     }
 }
