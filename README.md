@@ -1,40 +1,20 @@
-# ExiledUtils
+# ExiledUtils-Remake
+Remake of one of my first plugins
 
 This plugin adds some features to SCPSL (all configurable)
 
+PRO TIP: My plugin dont break servers with the infinite things
+
 # Config
-
-## FlippingCoin Config
-- AHP Gained when you flipping the coin (Tails) : bool
-- HintDuration : float
-- Hint : string
-- EffectDuration : float
-EFFECT: Scp207
-
-## RadioConfig
-- InfiniteRadio : bool
-
-## Scp106FeaturesConfig
-- ButtonPresserHintDuration : float
-- ButtonPresserHint : string
-- ButtonPresserEffectDuration : float
-EFFECT: SinkHole
-
-## Scp939Damage
-- Scp93953DMG : float
-- Scp93989DMG : float
-
-## TantrumConfig
-- TantrumCooldown : float
-- HintDuration : float
-- Hint : string
-- SCPInmune : bool
-- TantrumEffectDuration : float
-EFFECT: Hemorrhage
-
-## WeaponDamages
-- RevolverDMG : float
-- ShotgunDMG : float
-- LogicerDMG : float
-- AKDMG : float
-- FragGrenadeDMG : float
+- InfiniteRadio: true (Default)
+- InfiniteAmmo: false (Default)
+- InfiniteMicroHID: false (Default)
+- AddingTarget096Hint: Empty (Default)
+- AddingTargetHintDuration: 5 (Default)
+- AddingTargetHint: Empty (Default)
+- SCPInmuneToTantrum: false (Default)
+- CoinAHPGained: 10 (Default)
+- CoinHint: +10AHP (Default)
+- CoinHintDuration: 5 (Default)
+- EnableEffectMovementBoost: true (Default)
+- EffectDuration: 5 (Default)
