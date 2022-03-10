@@ -19,3 +19,6 @@ PRO TIP: My plugin dont break servers with the infinite things
 - EnableEffectMovementBoost: true (Default)
 - EffectDuration: 5 (Default)
 - ReservedGroups: owner, admin, moderator, donator (Default) 
+
+## Commands
+recall (~): Bring you all alive 0492 being 049
