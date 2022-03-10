@@ -38,23 +38,9 @@ namespace ExiledUtils_REMAKE
             {
                 ev.Player.ArtificialHealth += plugin.Config.CoinAHPGained;
                 ev.Player.ShowHint(plugin.Config.CoinHint, plugin.Config.CoinHintDuration);
-                if (plugin.Config.EnableEffect207)
+                if (plugin.Config.EnableEffectMovementBoost)
                 {
-                    ev.Player.EnableEffect(EffectType.Scp207, plugin.Config.EffectDuration);
-                }
-            }
-        }
-        public void OnHurting(HurtingEventArgs ev)
-        {
-            if (plugin.Config.EnableCustomDamages)
-            {
-                if (ev.Attacker.Role.Type == RoleType.Scp93953 && ev.Attacker.Role.Type == RoleType.Scp93989)
-                {
-                    ev.Amount = plugin.Config.Scp939Damage;
-                }
-                if (ev.Attacker.Role.Type == RoleType.Scp0492)
-                {
-                    ev.Amount = plugin.Config.Scp0492Damage;
+                    ev.Player.EnableEffect(EffectType.MovementBoost, plugin.Config.EffectDuration);
                 }
             }
         }

@@ -23,11 +23,7 @@ namespace ExiledUtils_REMAKE
         public float CoinAHPGained { get; set; } = 10f;
         public string CoinHint { get; set; } = "<i><color=green>+10AHP</color></i>";
         public float CoinHintDuration { get; set; } = 5f;
-        public bool EnableEffect207 { get; set; } = true;
+        public bool EnableEffectMovementBoost { get; set; } = true;
         public float EffectDuration { get; set; } = 5f;
-        [Description("Configurable Damage for 939 and 0492")]
-        public bool EnableCustomDamages { get; set; } = true;
-        public float Scp939Damage { get; set; } = 45f;
-        public float Scp0492Damage { get; set; } = 40f;
     }
 }

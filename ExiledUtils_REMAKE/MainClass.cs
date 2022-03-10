@@ -30,7 +30,6 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_PlayerHandler.Shooting += Ev.OnShooting;
             ExiledUtilsRemake_PlayerHandler.WalkingOnTantrum += Ev.OnWalkingOnTantrum;
             ExiledUtilsRemake_PlayerHandler.FlippingCoin += Ev.OnFlippingCoin;
-            ExiledUtilsRemake_PlayerHandler.Hurting += Ev.OnHurting;
             ExiledUtilsRemake_PlayerHandler.UsingMicroHIDEnergy += Ev.OnUsingMicroEnergy;
             ExiledUtilsRemake_Scp096Handler.AddingTarget += Ev.OnAddingTarget;
 
@@ -42,7 +41,6 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_PlayerHandler.Shooting -= Ev.OnShooting;
             ExiledUtilsRemake_PlayerHandler.WalkingOnTantrum -= Ev.OnWalkingOnTantrum;
             ExiledUtilsRemake_PlayerHandler.FlippingCoin -= Ev.OnFlippingCoin;
-            ExiledUtilsRemake_PlayerHandler.Hurting -= Ev.OnHurting;
             ExiledUtilsRemake_PlayerHandler.UsingMicroHIDEnergy -= Ev.OnUsingMicroEnergy;
             ExiledUtilsRemake_Scp096Handler.AddingTarget -= Ev.OnAddingTarget;
 
