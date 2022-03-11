@@ -36,6 +36,7 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_PlayerHandler.Dying += Ev.OnDying;
             ExiledUtilsRemake_Scp096Handler.AddingTarget += Ev.OnAddingTarget;
             ExiledUtilsRemake_Scp049Handler.FinishingRecall += Ev.OnReviving;
+            ExiledUtilsRemake_Scp049Handler.StartingRecall += Ev.OnStartReviving;
 
             base.OnEnabled();
         }
@@ -50,6 +51,7 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_PlayerHandler.Dying -= Ev.OnDying;
             ExiledUtilsRemake_Scp096Handler.AddingTarget -= Ev.OnAddingTarget;
             ExiledUtilsRemake_Scp049Handler.FinishingRecall -= Ev.OnReviving;
+            ExiledUtilsRemake_Scp049Handler.StartingRecall -= Ev.OnStartReviving;
 
             Ev = null;
             base.OnDisabled();

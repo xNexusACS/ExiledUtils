@@ -90,5 +90,15 @@ namespace ExiledUtils_REMAKE
                 ev.Scp049.EnableEffect(EffectType.MovementBoost, 10);
             }
         }
+        public void OnStartReviving(StartingRecallEventArgs ev)
+        {
+            if (plugin.Config.Enable049ReviveZombies)
+            {
+                if (ev.Target.Role.Type == RoleType.Scp0492)
+                {
+                    ev.IsAllowed = true;
+                }
+            }
+        }
     }
 }
