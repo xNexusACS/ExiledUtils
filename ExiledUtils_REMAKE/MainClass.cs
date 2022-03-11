@@ -2,6 +2,7 @@
 using Exiled.API.Features;
 using ExiledUtilsRemake_PlayerHandler = Exiled.Events.Handlers.Player;
 using ExiledUtilsRemake_Scp096Handler = Exiled.Events.Handlers.Scp096;
+using ExiledUtilsRemake_Scp049Handler = Exiled.Events.Handlers.Scp049;
 using ExiledUtils_REMAKE.Enums;
 
 namespace ExiledUtils_REMAKE
@@ -23,10 +24,6 @@ namespace ExiledUtils_REMAKE
             {
                 Log.Debug("WARNING: You are running a Beta version of ExiledUtils-Remake!", Config.DebugLogs);
             }
-            if (type == VersionType.Remake)
-            {
-                Log.Debug("Running a non beta version of ExiledUtils-Remake", Config.DebugLogs);
-            }
 
             Ev = new EventHandlers(this);
 
@@ -36,7 +33,9 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_PlayerHandler.FlippingCoin += Ev.OnFlippingCoin;
             ExiledUtilsRemake_PlayerHandler.UsingMicroHIDEnergy += Ev.OnUsingMicroEnergy;
             ExiledUtilsRemake_PlayerHandler.PreAuthenticating += Ev.OnPreAuthenticating;
+            ExiledUtilsRemake_PlayerHandler.Dying += Ev.OnDying;
             ExiledUtilsRemake_Scp096Handler.AddingTarget += Ev.OnAddingTarget;
+            ExiledUtilsRemake_Scp049Handler.FinishingRecall += Ev.OnReviving;
 
             base.OnEnabled();
         }
@@ -48,7 +47,9 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_PlayerHandler.FlippingCoin -= Ev.OnFlippingCoin;
             ExiledUtilsRemake_PlayerHandler.UsingMicroHIDEnergy -= Ev.OnUsingMicroEnergy;
             ExiledUtilsRemake_PlayerHandler.PreAuthenticating -= Ev.OnPreAuthenticating;
+            ExiledUtilsRemake_PlayerHandler.Dying -= Ev.OnDying;
             ExiledUtilsRemake_Scp096Handler.AddingTarget -= Ev.OnAddingTarget;
+            ExiledUtilsRemake_Scp049Handler.FinishingRecall -= Ev.OnReviving;
 
             Ev = null;
             base.OnDisabled();

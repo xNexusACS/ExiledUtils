@@ -3,6 +3,8 @@ using Exiled.API.Features.Items;
 using Exiled.API.Enums;
 using Exiled.API.Features;
 using Exiled.API.Extensions;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ExiledUtils_REMAKE
 {
@@ -61,6 +63,32 @@ namespace ExiledUtils_REMAKE
             bool reserved = plugin.Config.ReservedGroups.Contains(group.GetKey());
             if (reserved) ev.IsAllowed = true;
             Log.Debug($"{ev.UserId}: {group.GetKey()} | {reserved}", plugin.Config.DebugLogs);
+        }
+        public void OnDying(DyingEventArgs ev)
+        {
+            if (plugin.Config.EnableLastPlayerText)
+            {
+                List<Player> player = Player.Get(ev.Target.Role.Team).ToList();
+                if (player.Count - 1 == 1)
+                {
+                    if (player[0] == ev.Target)
+                    {
+                        player[1].ShowHint(plugin.Config.LastPlayerHint, plugin.Config.LastPlayerHintDuration);
+                    }
+                    else
+                    {
+                        player[0].ShowHint(plugin.Config.LastPlayerHint, plugin.Config.LastPlayerHintDuration);
+                    }
+                }
+            }
+        }
+        public void OnReviving(FinishingRecallEventArgs ev)
+        {
+            if (plugin.Config.Enable049BuffWhenReviving)
+            {
+                ev.Scp049.ArtificialHealth += 20;
+                ev.Scp049.EnableEffect(EffectType.MovementBoost, 10);
+            }
         }
     }
 }

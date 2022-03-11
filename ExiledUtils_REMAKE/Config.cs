@@ -31,6 +31,12 @@ namespace ExiledUtils_REMAKE
         {
             "owner", "admin", "moderator", "donator"
         };
-
+        [Description("Last Player")]
+        public bool EnableLastPlayerText { get; set; } = true;
+        public float LastPlayerHintDuration { get; set; } = 10f;
+        public string LastPlayerHint { get; set; } = string.Empty;
+        [Description("Scp049 Features")]
+        public bool Enable049BuffWhenReviving { get; set; } = true;
+        public bool ReviveZombies { get; set; } = true;
     }
 }
