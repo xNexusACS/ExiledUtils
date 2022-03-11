@@ -37,6 +37,5 @@ namespace ExiledUtils_REMAKE
         public string LastPlayerHint { get; set; } = string.Empty;
         [Description("Scp049 Features")]
         public bool Enable049BuffWhenReviving { get; set; } = true;
-        public bool Enable049ReviveZombies { get; set; } = false;
     }
 }
