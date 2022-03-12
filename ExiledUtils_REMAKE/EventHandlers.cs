@@ -38,11 +38,9 @@ namespace ExiledUtils_REMAKE
         }
         public void OnFlippingCoin(FlippingCoinEventArgs ev)
         {
-            if (ev.IsTails)
+            if (plugin.Config.EnableCoinFeatures)
             {
-                ev.Player.ArtificialHealth += plugin.Config.CoinAHPGained;
-                ev.Player.ShowHint(plugin.Config.CoinHint, plugin.Config.CoinHintDuration);
-                if (plugin.Config.EnableEffectMovementBoost)
+                if (ev.IsTails)
                 {
                     ev.Player.EnableEffect(EffectType.MovementBoost, plugin.Config.EffectDuration);
                 }

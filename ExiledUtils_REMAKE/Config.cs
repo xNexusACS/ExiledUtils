@@ -21,10 +21,7 @@ namespace ExiledUtils_REMAKE
         [Description("Are the SCPs inmune to the Tantrum?")]
         public bool SCPInmuneToTantrum { get; set; } = false;
         [Description("Coin Features")]
-        public float CoinAHPGained { get; set; } = 10f;
-        public string CoinHint { get; set; } = "<i><color=green>+10AHP</color></i>";
-        public float CoinHintDuration { get; set; } = 5f;
-        public bool EnableEffectMovementBoost { get; set; } = true;
+        public bool EnableCoinFeatures { get; set; } = false;
         public float EffectDuration { get; set; } = 5f;
         [Description("ReservedSlots")]
         public List<string> ReservedGroups { get; set; } = new List<string>()
