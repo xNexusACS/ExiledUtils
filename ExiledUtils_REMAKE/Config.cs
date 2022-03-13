@@ -34,5 +34,24 @@ namespace ExiledUtils_REMAKE
         public string LastPlayerHint { get; set; } = string.Empty;
         [Description("Scp049 Features")]
         public bool Enable049BuffWhenReviving { get; set; } = true;
+        [Description("RainbowTags config")]
+        public string[] RTSequences { get; set; } = new string[]
+        {
+            "red",
+            "orange",
+            "yellow",
+            "green",
+            "blue_green",
+            "magenta",
+            "silver",
+            "crimson"
+        };
+        public List<string> RoleRainbowTags { get; set; } = new List<string>
+        {
+            "owner",
+            "admin",
+            "moderator"
+        };
+        public float ColorInterval { get; set; } = 0.5f;
     }
 }
