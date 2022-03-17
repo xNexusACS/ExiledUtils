@@ -5,7 +5,6 @@ using Exiled.API.Features;
 using Exiled.API.Extensions;
 using System.Collections.Generic;
 using System.Linq;
-using ExiledUtils_REMAKE.Components;
 
 namespace ExiledUtils_REMAKE
 {
