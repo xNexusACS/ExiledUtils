@@ -34,7 +34,6 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_PlayerHandler.UsingMicroHIDEnergy += Ev.OnUsingMicroEnergy;
             ExiledUtilsRemake_PlayerHandler.PreAuthenticating += Ev.OnPreAuthenticating;
             ExiledUtilsRemake_PlayerHandler.Dying += Ev.OnDying;
-            ExiledUtilsRemake_PlayerHandler.ChangingGroup += Ev.OnChangingGroup;
             ExiledUtilsRemake_Scp096Handler.AddingTarget += Ev.OnAddingTarget;
             ExiledUtilsRemake_Scp049Handler.FinishingRecall += Ev.OnReviving;
 
@@ -49,7 +48,6 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_PlayerHandler.UsingMicroHIDEnergy -= Ev.OnUsingMicroEnergy;
             ExiledUtilsRemake_PlayerHandler.PreAuthenticating -= Ev.OnPreAuthenticating;
             ExiledUtilsRemake_PlayerHandler.Dying -= Ev.OnDying;
-            ExiledUtilsRemake_PlayerHandler.ChangingGroup -= Ev.OnChangingGroup;
             ExiledUtilsRemake_Scp096Handler.AddingTarget -= Ev.OnAddingTarget;
             ExiledUtilsRemake_Scp049Handler.FinishingRecall -= Ev.OnReviving;
 
