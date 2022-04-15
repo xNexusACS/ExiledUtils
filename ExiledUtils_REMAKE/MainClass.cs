@@ -3,6 +3,7 @@ using Exiled.API.Features;
 using ExiledUtilsRemake_PlayerHandler = Exiled.Events.Handlers.Player;
 using ExiledUtilsRemake_Scp096Handler = Exiled.Events.Handlers.Scp096;
 using ExiledUtilsRemake_Scp049Handler = Exiled.Events.Handlers.Scp049;
+using ExiledUtilsRemake_Scp106Handler = Exiled.Events.Handlers.Scp106;
 using ExiledUtils_REMAKE.Enums;
 
 namespace ExiledUtils_REMAKE
@@ -12,9 +13,9 @@ namespace ExiledUtils_REMAKE
         public override string Author { get; } = "xNexus-ACS";
         public override string Name { get; } = "ExiledUtils-Remake";
         public override string Prefix { get; } = "exiled_utils_remake";
-        public override Version Version { get; } = new Version(3, 0, 4);
-        public override Version RequiredExiledVersion { get; } = new Version(5, 0, 0);
-        public const VersionType type = VersionType.RemakeBeta;
+        public override Version Version { get; } = new Version(3, 1, 0);
+        public override Version RequiredExiledVersion { get; } = new Version(5, 1, 3);
+        public const VersionType type = VersionType.Remake;
 
         public EventHandlers Ev;
 
