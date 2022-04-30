@@ -86,6 +86,9 @@ namespace ExiledUtils_REMAKE
             {
                 ev.Scp049.ArtificialHealth += 20;
                 ev.Scp049.EnableEffect(EffectType.MovementBoost, 10);
+                
+                if (plugin.Config.EnableHealthWhenReviving)
+                    ev.Scp049.Heal(plugin.Config.HealthWhenReviving);
             }
         }
     }
