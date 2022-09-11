@@ -10,12 +10,13 @@ namespace ExiledUtils_REMAKE
 {
     public class MainClass : Plugin<Config>
     {
+        public static MainClass hub;
         public override string Author { get; } = "xNexus-ACS";
         public override string Name { get; } = "ExiledUtils-Remake";
         public override string Prefix { get; } = "exiled_utils_remake";
-        public override Version Version { get; } = new Version(3, 1, 0);
-        public override Version RequiredExiledVersion { get; } = new Version(5, 1, 3);
-        public const VersionType type = VersionType.Remake;
+        public override Version Version { get; } = new Version(3, 2, 0);
+        public override Version RequiredExiledVersion { get; } = new Version(5, 2, 0);
+        public const VersionType type = VersionType.RemakeBeta;
 
         public EventHandlers Ev;
 
@@ -27,16 +28,18 @@ namespace ExiledUtils_REMAKE
             }
 
             Ev = new EventHandlers(this);
+            hub = this;
 
             ExiledUtilsRemake_PlayerHandler.UsingRadioBattery += Ev.OnUsingRadioBattery;
             ExiledUtilsRemake_PlayerHandler.Shooting += Ev.OnShooting;
-            ExiledUtilsRemake_PlayerHandler.WalkingOnTantrum += Ev.OnWalkingOnTantrum;
+            ExiledUtilsRemake_PlayerHandler.EnteringEnvironmentalHazard += Ev.OnEnteringEnvironmentalHazard;
             ExiledUtilsRemake_PlayerHandler.FlippingCoin += Ev.OnFlippingCoin;
             ExiledUtilsRemake_PlayerHandler.UsingMicroHIDEnergy += Ev.OnUsingMicroEnergy;
             ExiledUtilsRemake_PlayerHandler.PreAuthenticating += Ev.OnPreAuthenticating;
             ExiledUtilsRemake_PlayerHandler.Dying += Ev.OnDying;
             ExiledUtilsRemake_Scp096Handler.AddingTarget += Ev.OnAddingTarget;
-            ExiledUtilsRemake_Scp049Handler.FinishingRecall += Ev.OnReviving;
+            ExiledUtilsRemake_Scp049Handler.FinishingRecall += Ev.OnRevived;
+            ExiledUtilsRemake_Scp049Handler.StartingRecall += Ev.OnReviving;
 
             base.OnEnabled();
         }
@@ -44,15 +47,17 @@ namespace ExiledUtils_REMAKE
         {
             ExiledUtilsRemake_PlayerHandler.UsingRadioBattery -= Ev.OnUsingRadioBattery;
             ExiledUtilsRemake_PlayerHandler.Shooting -= Ev.OnShooting;
-            ExiledUtilsRemake_PlayerHandler.WalkingOnTantrum -= Ev.OnWalkingOnTantrum;
+            ExiledUtilsRemake_PlayerHandler.EnteringEnvironmentalHazard -= Ev.OnEnteringEnvironmentalHazard;
             ExiledUtilsRemake_PlayerHandler.FlippingCoin -= Ev.OnFlippingCoin;
             ExiledUtilsRemake_PlayerHandler.UsingMicroHIDEnergy -= Ev.OnUsingMicroEnergy;
             ExiledUtilsRemake_PlayerHandler.PreAuthenticating -= Ev.OnPreAuthenticating;
             ExiledUtilsRemake_PlayerHandler.Dying -= Ev.OnDying;
             ExiledUtilsRemake_Scp096Handler.AddingTarget -= Ev.OnAddingTarget;
-            ExiledUtilsRemake_Scp049Handler.FinishingRecall -= Ev.OnReviving;
+            ExiledUtilsRemake_Scp049Handler.FinishingRecall -= Ev.OnRevived;
+            ExiledUtilsRemake_Scp049Handler.StartingRecall -= Ev.OnReviving;
 
             Ev = null;
+            hub = null;
             base.OnDisabled();
         }
     }

@@ -5,6 +5,7 @@ using Exiled.API.Features;
 using Exiled.API.Extensions;
 using System.Collections.Generic;
 using System.Linq;
+using MEC;
 
 namespace ExiledUtils_REMAKE
 {
@@ -32,9 +33,12 @@ namespace ExiledUtils_REMAKE
             ev.Scp096.ShowHint(plugin.Config.AddingTarget096Hint, plugin.Config.AddingTargetHintDuration);
             ev.Target.ShowHint(plugin.Config.AddingTargetHint, plugin.Config.AddingTargetHintDuration);
         }
-        public void OnWalkingOnTantrum(WalkingOnTantrumEventArgs ev)
+        public void OnEnteringEnvironmentalHazard(EnteringEnvironmentalHazardEventArgs ev)
         {
-            ev.Tantrum.SCPImmune = plugin.Config.SCPInmuneToTantrum;
+            if (ev.EnvironmentalHazard is TantrumEnvironmentalHazard hazard)
+            {
+                hazard.SCPImmune = MainClass.hub.Config.SCPInmuneToTantrum;
+            }
         }
         public void OnFlippingCoin(FlippingCoinEventArgs ev)
         {
@@ -80,15 +84,31 @@ namespace ExiledUtils_REMAKE
                 }
             }
         }
-        public void OnReviving(FinishingRecallEventArgs ev)
+        public void OnRevived(FinishingRecallEventArgs ev)
         {
             if (plugin.Config.Enable049BuffWhenReviving)
             {
-                ev.Scp049.ArtificialHealth += 20;
+                ev.Scp049.ArtificialHealth = 100;
                 ev.Scp049.EnableEffect(EffectType.MovementBoost, 10);
                 
                 if (plugin.Config.EnableHealthWhenReviving)
                     ev.Scp049.Heal(plugin.Config.HealthWhenReviving);
+            }
+        }
+
+        public void OnReviving(StartingRecallEventArgs ev)
+        {
+            if (plugin.Config.Enable049InstantRevive)
+            {
+                ev.IsAllowed = false;
+                ev.Target.SetRole(RoleType.Scp0492, SpawnReason.Revived, true);
+                ev.Target.ClearInventory();
+                ev.Ragdoll.Delete();
+
+                Timing.CallDelayed(0.8f, () =>
+                {
+                    ev.Target.Position = ev.Scp049.Position;
+                });
             }
         }
     }
