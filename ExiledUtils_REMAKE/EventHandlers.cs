@@ -88,7 +88,8 @@ namespace ExiledUtils_REMAKE
         {
             if (plugin.Config.Enable049BuffWhenReviving)
             {
-                ev.Scp049.ArtificialHealth = 100;
+                ev.Scp049.ActiveArtificialHealthProcesses.First().CurrentAmount = 100;
+                ev.Scp049.ActiveArtificialHealthProcesses.First().DecayRate = 0;
                 ev.Scp049.EnableEffect(EffectType.MovementBoost, 10);
                 
                 if (plugin.Config.EnableHealthWhenReviving)

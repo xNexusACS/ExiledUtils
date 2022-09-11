@@ -14,9 +14,9 @@ namespace ExiledUtils_REMAKE
         public override string Author { get; } = "xNexus-ACS";
         public override string Name { get; } = "ExiledUtils-Remake";
         public override string Prefix { get; } = "exiled_utils_remake";
-        public override Version Version { get; } = new Version(3, 2, 0);
-        public override Version RequiredExiledVersion { get; } = new Version(5, 2, 0);
-        public const VersionType type = VersionType.RemakeBeta;
+        public override Version Version { get; } = new Version(4, 0, 0);
+        public override Version RequiredExiledVersion { get; } = new Version(5, 3, 0);
+        public const VersionType type = VersionType.Remake;
 
         public EventHandlers Ev;
 
