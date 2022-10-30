@@ -12,7 +12,6 @@ PRO TIP: My plugin dont break servers with the infinite things
 - AddingTarget096Hint: Empty (Default)
 - AddingTargetHintDuration: 5 (Default)
 - AddingTargetHint: Empty (Default)
-- SCPInmuneToTantrum: false (Default)
 - CoinAHPGained: 10 (Default)
 - CoinHint: +10AHP (Default)
 - CoinHintDuration: 5 (Default)
