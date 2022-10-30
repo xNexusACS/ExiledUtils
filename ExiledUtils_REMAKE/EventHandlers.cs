@@ -33,13 +33,6 @@ namespace ExiledUtils_REMAKE
             ev.Scp096.ShowHint(plugin.Config.AddingTarget096Hint, plugin.Config.AddingTargetHintDuration);
             ev.Target.ShowHint(plugin.Config.AddingTargetHint, plugin.Config.AddingTargetHintDuration);
         }
-        public void OnEnteringEnvironmentalHazard(EnteringEnvironmentalHazardEventArgs ev)
-        {
-            if (ev.EnvironmentalHazard is TantrumEnvironmentalHazard hazard)
-            {
-                hazard.SCPImmune = MainClass.hub.Config.SCPInmuneToTantrum;
-            }
-        }
         public void OnFlippingCoin(FlippingCoinEventArgs ev)
         {
             if (plugin.Config.EnableCoinFeatures)
