@@ -18,13 +18,11 @@ namespace ExiledUtils_REMAKE
         public string AddingTarget096Hint { get; set; } = string.Empty;
         public float AddingTargetHintDuration { get; set; } = 5f;
         public string AddingTargetHint { get; set; } = string.Empty;
-        [Description("Are the SCPs inmune to the Tantrum?")]
-        public bool SCPInmuneToTantrum { get; set; } = false;
         [Description("Coin Features")]
         public bool EnableCoinFeatures { get; set; } = false;
         public float EffectDuration { get; set; } = 5f;
         [Description("ReservedSlots")]
-        public List<string> ReservedGroups { get; set; } = new List<string>()
+        public List<string> ReservedGroups { get; set; } = new List<string>
         {
             "owner", "admin", "moderator", "donator"
         };
@@ -34,8 +32,16 @@ namespace ExiledUtils_REMAKE
         public string LastPlayerHint { get; set; } = string.Empty;
         [Description("Scp049 Features")]
         public bool Enable049BuffWhenReviving { get; set; } = true;
+
+        public bool Enable049InstantRevive { get; set; } = true;
         public bool EnableBringZombiesCommand { get; set; } = false;
         public bool EnableHealthWhenReviving { get; set; } = true;
         public float HealthWhenReviving { get; set; } = 50f;
+        
+        [Description("ScpVoiceChat Features")]
+        public List<RoleType> ScpVoiceChatRoles { get; set; } = new List<RoleType>
+        {
+            RoleType.Scp049, RoleType.Scp0492, RoleType.Scp079, RoleType.Scp096, RoleType.Scp106, RoleType.Scp173, RoleType.Scp93953, RoleType.Scp93989
+        };
     }
 }
