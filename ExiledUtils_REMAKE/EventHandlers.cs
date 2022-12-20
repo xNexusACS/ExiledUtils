@@ -13,7 +13,7 @@ namespace ExiledUtils_REMAKE
 {
     public class EventHandlers
     {
-        public readonly MainClass plugin;
+        private readonly MainClass plugin;
         public EventHandlers(MainClass plugin)
         {
             this.plugin = plugin;
