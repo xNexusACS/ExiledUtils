@@ -7,7 +7,7 @@ namespace ExiledUtils_REMAKE
     public class Config : IConfig
     {
         public bool IsEnabled { get; set; } = true;
-        public bool DebugLogs { get; set; } = true;
+        public bool Debug { get; set; } = false;
         [Description("Enable Infinte Radio?")]
         public bool InfiniteRadio { get; set; } = true;
         [Description("Enable infinite ammo? (On Shooting)")]
@@ -37,11 +37,5 @@ namespace ExiledUtils_REMAKE
         public bool EnableBringZombiesCommand { get; set; } = false;
         public bool EnableHealthWhenReviving { get; set; } = true;
         public float HealthWhenReviving { get; set; } = 50f;
-        
-        [Description("ScpVoiceChat Features")]
-        public List<RoleType> ScpVoiceChatRoles { get; set; } = new List<RoleType>
-        {
-            RoleType.Scp049, RoleType.Scp0492, RoleType.Scp079, RoleType.Scp096, RoleType.Scp106, RoleType.Scp173, RoleType.Scp93953, RoleType.Scp93989
-        };
     }
 }

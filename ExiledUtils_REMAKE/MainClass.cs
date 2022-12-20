@@ -27,7 +27,7 @@ namespace ExiledUtils_REMAKE
         {
             if (type == VersionType.RemakeBeta)
             {
-                Log.Debug("WARNING: You are running a Beta version of ExiledUtils-Remake!", Config.DebugLogs);
+                Log.Warn("WARNING: You are running a Beta version of ExiledUtils-Remake!");
             }
 
             hub = this;
@@ -39,7 +39,6 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_PlayerHandler.Shooting += Ev.OnShooting;
             ExiledUtilsRemake_PlayerHandler.FlippingCoin += Ev.OnFlippingCoin;
             ExiledUtilsRemake_PlayerHandler.UsingMicroHIDEnergy += Ev.OnUsingMicroEnergy;
-            ExiledUtilsRemake_PlayerHandler.PreAuthenticating += Ev.OnPreAuthenticating;
             ExiledUtilsRemake_PlayerHandler.Dying += Ev.OnDying;
             ExiledUtilsRemake_Scp096Handler.AddingTarget += Ev.OnAddingTarget;
             ExiledUtilsRemake_Scp049Handler.FinishingRecall += Ev.OnRevived;
@@ -53,7 +52,6 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_PlayerHandler.Shooting -= Ev.OnShooting;
             ExiledUtilsRemake_PlayerHandler.FlippingCoin -= Ev.OnFlippingCoin;
             ExiledUtilsRemake_PlayerHandler.UsingMicroHIDEnergy -= Ev.OnUsingMicroEnergy;
-            ExiledUtilsRemake_PlayerHandler.PreAuthenticating -= Ev.OnPreAuthenticating;
             ExiledUtilsRemake_PlayerHandler.Dying -= Ev.OnDying;
             ExiledUtilsRemake_Scp096Handler.AddingTarget -= Ev.OnAddingTarget;
             ExiledUtilsRemake_Scp049Handler.FinishingRecall -= Ev.OnRevived;

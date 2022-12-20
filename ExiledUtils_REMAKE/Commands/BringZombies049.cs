@@ -1,6 +1,7 @@
 ﻿using System;
 using CommandSystem;
 using Exiled.API.Features;
+using PlayerRoles;
 
 namespace ExiledUtils_REMAKE.Commands
 {
@@ -10,30 +11,39 @@ namespace ExiledUtils_REMAKE.Commands
         public string Command { get; } = "recall";
         public string[] Aliases { get; } = null;
         public string Description { get; } = "[EXILED-UTILS] Bring all Zombies, you need to be 049";
+        
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-            response = "";
-            Player player = Player.Get(((CommandSender)sender).SenderId);
-            if (player.Role.Type == RoleType.Scp049)
+            if (MainClass.hub.Config.EnableBringZombiesCommand)
             {
-                foreach (Player players in Player.List)
+                response = "";
+                Player player = Player.Get(((CommandSender)sender).SenderId);
+                if (player.Role.Type == RoleTypeId.Scp049)
                 {
-                    if (players.Role.Type == RoleType.Scp0492)
+                    foreach (Player players in Player.List)
                     {
-                        players.Position = player.Position;
-                        response = "Bringed All zombies";
+                        if (players.Role.Type == RoleTypeId.Scp0492)
+                        {
+                            players.Position = player.Position;
+                            response = "Bringed All zombies";
+                        }
+                    }
+                    if (response == "")
+                    {
+                        response = "There aren't 049-2 alive";
                     }
                 }
-                if (response == "")
+                else
                 {
-                    response = "There aren't 049-2 alive";
+                    response = "You need to be 049 to execute this command";
                 }
             }
             else
             {
-                response = "You need to be 049 to execute this command";
+                response = "The Command is disabled in the config, to use it enable it";
             }
-            return true;
+
+            return false;
         }
     }
 }

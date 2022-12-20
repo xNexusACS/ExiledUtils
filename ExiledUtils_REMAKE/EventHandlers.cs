@@ -1,11 +1,13 @@
-﻿using Exiled.Events.EventArgs;
-using Exiled.API.Features.Items;
+﻿using Exiled.API.Features.Items;
 using Exiled.API.Enums;
 using Exiled.API.Features;
-using Exiled.API.Extensions;
 using System.Collections.Generic;
 using System.Linq;
+using Exiled.Events.EventArgs.Player;
+using Exiled.Events.EventArgs.Scp049;
+using Exiled.Events.EventArgs.Scp096;
 using MEC;
+using PlayerRoles;
 
 namespace ExiledUtils_REMAKE
 {
@@ -25,12 +27,12 @@ namespace ExiledUtils_REMAKE
         }
         public void OnShooting(ShootingEventArgs ev)
         {
-            if (plugin.Config.InfiniteAmmo && ev.Shooter?.CurrentItem is Firearm firearm)
+            if (plugin.Config.InfiniteAmmo && ev.Player?.CurrentItem is Firearm firearm)
                 firearm.Ammo++;
         }
         public void OnAddingTarget(AddingTargetEventArgs ev)
         {
-            ev.Scp096.ShowHint(plugin.Config.AddingTarget096Hint, plugin.Config.AddingTargetHintDuration);
+            ev.Player.ShowHint(plugin.Config.AddingTarget096Hint, plugin.Config.AddingTargetHintDuration);
             ev.Target.ShowHint(plugin.Config.AddingTargetHint, plugin.Config.AddingTargetHintDuration);
         }
         public void OnFlippingCoin(FlippingCoinEventArgs ev)
@@ -50,23 +52,14 @@ namespace ExiledUtils_REMAKE
                 ev.IsAllowed = false;
             }
         }
-        public void OnPreAuthenticating(PreAuthenticatingEventArgs ev)
-        {
-            var group = Server.PermissionsHandler.GetUserGroup(ev.UserId);
-            if (group == null) return;
-
-            bool reserved = plugin.Config.ReservedGroups.Contains(group.GetKey());
-            if (reserved) ev.IsAllowed = true;
-            Log.Debug($"{ev.UserId}: {group.GetKey()} | {reserved}", plugin.Config.DebugLogs);
-        }
         public void OnDying(DyingEventArgs ev)
         {
             if (plugin.Config.EnableLastPlayerText)
             {
-                List<Player> player = Player.Get(ev.Target.Role.Team).ToList();
+                List<Player> player = Player.Get(ev.Player.Role.Team).ToList();
                 if (player.Count - 1 == 1)
                 {
-                    if (player[0] == ev.Target)
+                    if (player[0] == ev.Player)
                     {
                         player[1].ShowHint(plugin.Config.LastPlayerHint, plugin.Config.LastPlayerHintDuration);
                     }
@@ -81,12 +74,12 @@ namespace ExiledUtils_REMAKE
         {
             if (plugin.Config.Enable049BuffWhenReviving)
             {
-                ev.Scp049.ActiveArtificialHealthProcesses.First().CurrentAmount = 100;
-                ev.Scp049.ActiveArtificialHealthProcesses.First().DecayRate = 0;
-                ev.Scp049.EnableEffect(EffectType.MovementBoost, 10);
+                ev.Player.ActiveArtificialHealthProcesses.First().CurrentAmount = 100;
+                ev.Player.ActiveArtificialHealthProcesses.First().DecayRate = 0;
+                ev.Player.EnableEffect(EffectType.MovementBoost, 10);
                 
                 if (plugin.Config.EnableHealthWhenReviving)
-                    ev.Scp049.Heal(plugin.Config.HealthWhenReviving);
+                    ev.Player.Heal(plugin.Config.HealthWhenReviving);
             }
         }
 
@@ -95,13 +88,13 @@ namespace ExiledUtils_REMAKE
             if (plugin.Config.Enable049InstantRevive)
             {
                 ev.IsAllowed = false;
-                ev.Target.SetRole(RoleType.Scp0492, SpawnReason.Revived, true);
+                ev.Target.SetRole(RoleTypeId.Scp0492, SpawnReason.Revived);
                 ev.Target.ClearInventory();
                 ev.Ragdoll.Delete();
 
                 Timing.CallDelayed(0.8f, () =>
                 {
-                    ev.Target.Position = ev.Scp049.Position;
+                    ev.Target.Position = ev.Player.Position;
                 });
             }
         }
