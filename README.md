@@ -20,7 +20,7 @@ PRO TIP: My plugin dont break servers with the infinite things
 - CoinHintDuration: 5 (Default)
 - EnableEffectMovementBoost: true (Default)
 - EffectDuration: 5 (Default)
-- ReservedGroups: owner, admin, moderator, donator (Default) - REMOVED TEMPORARILY
+- ReservedGroups: owner, admin, moderator, donator (Default)
 - EnableLastPlayerText: true (Default)
 - LastPlayerHintDuration: 10 (Default)
 - LastPlayerHint: Empty (Default)
