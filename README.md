@@ -1,7 +1,7 @@
 # ExiledUtils-Remake
 Remake of one of my first plugins
 
-This plugin adds some features to SCPSL (all configurable) & Fixes the Tutorial position when changing the role
+This plugin adds some features to SCPSL (all configurable) & Fixes the Tutorial position when changing the role (configurable via config)
 
 PRO TIP: My plugin dont break servers with the infinite things
 
