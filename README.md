@@ -1,7 +1,7 @@
 # ExiledUtils-Remake
 Remake of one of my first plugins
 
-This plugin adds some features to SCPSL (all configurable)
+This plugin adds some features to SCPSL (all configurable) & Fixes the Tutorial position when changing the role
 
 PRO TIP: My plugin dont break servers with the infinite things
 
@@ -9,6 +9,7 @@ PRO TIP: My plugin dont break servers with the infinite things
 - CommonUtilities Because of the ScpVoiceChat Patch
 
 # Config
+- FixTutorialPosition: true (Default)
 - InfiniteRadio: true (Default)
 - InfiniteAmmo: false (Default)
 - InfiniteMicroHID: false (Default)
