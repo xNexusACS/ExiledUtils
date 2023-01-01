@@ -8,6 +8,9 @@ namespace ExiledUtils_REMAKE
     {
         public bool IsEnabled { get; set; } = true;
         public bool Debug { get; set; } = false;
+        
+        [Description("Fix the tutorial position when changing the role to tutorial?")]
+        public bool FixTutorialPosition { get; set; } = true;
         [Description("Enable Infinte Radio?")]
         public bool InfiniteRadio { get; set; } = true;
         [Description("Enable infinite ammo? (On Shooting)")]

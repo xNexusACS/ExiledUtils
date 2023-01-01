@@ -15,7 +15,7 @@ namespace ExiledUtils_REMAKE
         public override string Author { get; } = "xNexus-ACS";
         public override string Name { get; } = "ExiledUtils-Remake";
         public override string Prefix { get; } = "exiled_utils_remake";
-        public override Version Version { get; } = new Version(5, 0, 0);
+        public override Version Version { get; } = new Version(5, 0, 1);
         public override Version RequiredExiledVersion { get; } = new Version(6, 0, 0);
         public const VersionType type = VersionType.RemakeBeta;
         
@@ -43,6 +43,8 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_Scp096Handler.AddingTarget += Ev.OnAddingTarget;
             ExiledUtilsRemake_Scp049Handler.FinishingRecall += Ev.OnRevived;
             ExiledUtilsRemake_Scp049Handler.StartingRecall += Ev.OnReviving;
+            ExiledUtilsRemake_PlayerHandler.PreAuthenticating += Ev.OnPreAuth;
+            ExiledUtilsRemake_PlayerHandler.ChangingRole += Ev.OnChangingRole;
 
             base.OnEnabled();
         }
@@ -56,6 +58,8 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_Scp096Handler.AddingTarget -= Ev.OnAddingTarget;
             ExiledUtilsRemake_Scp049Handler.FinishingRecall -= Ev.OnRevived;
             ExiledUtilsRemake_Scp049Handler.StartingRecall -= Ev.OnReviving;
+            ExiledUtilsRemake_PlayerHandler.PreAuthenticating -= Ev.OnPreAuth;
+            ExiledUtilsRemake_PlayerHandler.ChangingRole -= Ev.OnChangingRole;
             
             Ev = null;
             hub = null;

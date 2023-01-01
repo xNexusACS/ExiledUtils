@@ -3,11 +3,13 @@ using Exiled.API.Enums;
 using Exiled.API.Features;
 using System.Collections.Generic;
 using System.Linq;
+using Exiled.API.Extensions;
 using Exiled.Events.EventArgs.Player;
 using Exiled.Events.EventArgs.Scp049;
 using Exiled.Events.EventArgs.Scp096;
 using MEC;
 using PlayerRoles;
+using UnityEngine;
 
 namespace ExiledUtils_REMAKE
 {
@@ -88,7 +90,7 @@ namespace ExiledUtils_REMAKE
             if (plugin.Config.Enable049InstantRevive)
             {
                 ev.IsAllowed = false;
-                ev.Target.SetRole(RoleTypeId.Scp0492, SpawnReason.Revived);
+                ev.Target.Role.Set(RoleTypeId.Scp0492, SpawnReason.Revived);
                 ev.Target.ClearInventory();
                 ev.Ragdoll.Delete();
 
@@ -97,6 +99,24 @@ namespace ExiledUtils_REMAKE
                     ev.Target.Position = ev.Player.Position;
                 });
             }
+        }
+
+        public void OnPreAuth(PreAuthenticatingEventArgs ev)
+        {
+            var group = Server.PermissionsHandler.GetUserGroup(ev.UserId);
+            if (group != null)
+            {
+                if (MainClass.hub.Config.ReservedGroups.Contains(group.GetKey()))
+                    ev.Request.Accept();
+                Log.Debug($"{ev.UserId}: {group} || {ev.IsAllowed}");
+            }
+        }
+
+        public void OnChangingRole(ChangingRoleEventArgs ev)
+        {
+            if (MainClass.hub.Config.FixTutorialPosition)
+                if (ev.NewRole is RoleTypeId.Tutorial)
+                    ev.Player.Position = new Vector3(40.297f, 1014.110f, -31.918f);
         }
     }
 }
