@@ -11,6 +11,8 @@ namespace ExiledUtils_REMAKE
         
         [Description("Fix the tutorial position when changing the role to tutorial?")]
         public bool FixTutorialPosition { get; set; } = true;
+        [Description("Hide all tags player tags? (Can be toggled with the command hdat")]
+        public bool HideTags { get; set; } = false;
         [Description("Enable Infinte Radio?")]
         public bool InfiniteRadio { get; set; } = true;
         [Description("Enable infinite ammo? (On Shooting)")]

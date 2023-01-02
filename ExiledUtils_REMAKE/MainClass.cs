@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Exiled.API.Features;
 using ExiledUtilsRemake_PlayerHandler = Exiled.Events.Handlers.Player;
 using ExiledUtilsRemake_Scp096Handler = Exiled.Events.Handlers.Scp096;
@@ -20,6 +21,8 @@ namespace ExiledUtils_REMAKE
         public const VersionType type = VersionType.RemakeBeta;
         
         private static Harmony harmony;
+        
+        public List<Player> JailedPlayers = new();
 
         public EventHandlers Ev { get; private set; }
 
@@ -45,6 +48,7 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_Scp049Handler.StartingRecall += Ev.OnReviving;
             ExiledUtilsRemake_PlayerHandler.PreAuthenticating += Ev.OnPreAuth;
             ExiledUtilsRemake_PlayerHandler.ChangingRole += Ev.OnChangingRole;
+            ExiledUtilsRemake_PlayerHandler.Verified += Ev.OnVerified;
 
             base.OnEnabled();
         }
@@ -60,6 +64,7 @@ namespace ExiledUtils_REMAKE
             ExiledUtilsRemake_Scp049Handler.StartingRecall -= Ev.OnReviving;
             ExiledUtilsRemake_PlayerHandler.PreAuthenticating -= Ev.OnPreAuth;
             ExiledUtilsRemake_PlayerHandler.ChangingRole -= Ev.OnChangingRole;
+            ExiledUtilsRemake_PlayerHandler.Verified -= Ev.OnVerified;
             
             Ev = null;
             hub = null;

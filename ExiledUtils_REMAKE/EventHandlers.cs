@@ -92,7 +92,7 @@ namespace ExiledUtils_REMAKE
                 ev.IsAllowed = false;
                 ev.Target.Role.Set(RoleTypeId.Scp0492, SpawnReason.Revived);
                 ev.Target.ClearInventory();
-                ev.Ragdoll.Delete();
+                ev.Ragdoll.Destroy();
 
                 Timing.CallDelayed(0.8f, () =>
                 {
@@ -117,6 +117,21 @@ namespace ExiledUtils_REMAKE
             if (MainClass.hub.Config.FixTutorialPosition)
                 if (ev.NewRole is RoleTypeId.Tutorial)
                     ev.Player.Position = new Vector3(40.297f, 1014.110f, -31.918f);
+        }
+
+        public void OnVerified(VerifiedEventArgs ev)
+        {
+            if (MainClass.hub.Config.HideTags)
+                if (ev.Player.ReferenceHub.serverRoles.RemoteAdmin)
+                    ev.Player.BadgeHidden = true;
+
+            if (MainClass.hub.JailedPlayers.Contains(ev.Player) && ev.Player.Role.Type is not RoleTypeId.Tutorial)
+            {
+                ev.Player.Role.Set(RoleTypeId.Tutorial);
+                
+                // Just in case if the FixTutorialPosition is disabled or fails to move the player
+                ev.Player.Position = new Vector3(40.297f, 1014.110f, -31.918f);
+            }
         }
     }
 }
