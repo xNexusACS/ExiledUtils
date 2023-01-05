@@ -7,6 +7,7 @@ using Exiled.API.Extensions;
 using Exiled.Events.EventArgs.Player;
 using Exiled.Events.EventArgs.Scp049;
 using Exiled.Events.EventArgs.Scp096;
+using LiteNetLib;
 using MEC;
 using PlayerRoles;
 using UnityEngine;
@@ -107,7 +108,7 @@ namespace ExiledUtils_REMAKE
             if (group != null)
             {
                 if (MainClass.hub.Config.ReservedGroups.Contains(group.GetKey()))
-                    ev.Request.Accept();
+                    ev.Request.Result = ConnectionRequestResult.Accept;
                 Log.Debug($"{ev.UserId}: {group} || {ev.IsAllowed}");
             }
         }
