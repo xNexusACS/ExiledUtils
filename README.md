@@ -26,6 +26,6 @@ This plugin adds some features to SCPSL (all configurable) & Fixes the Tutorial 
 
 ## Commands
 - recall (~): Bring you all alive 0492 being 049
-- jail (Required Permission: eu.jail) (RA): Jails a player (sets the targets role to tutorial and then it moves it to the tower) (Execute again in a jailed target to Unjail it)
+- prison (Required Permission: eu.jail) (RA): Jails a player (sets the targets role to tutorial and then it moves it to the tower) (Execute again in a jailed target to Unjail it)
 - hidealltags (Aliase: hdat) (Required Permission: eu.hidealltags) (RA): Enable or Disable the HideTags configuration (If enabled, all tags will hide. `hidealltags`) (Execute it again: `hidealltags` to disable)
 - modifyplayerahp (Aliase: mpahp) (Required Permission: eu.modifyplayerahp) (RA): Modify's a player AHP (arguments: mpahp <target> <amount>)
