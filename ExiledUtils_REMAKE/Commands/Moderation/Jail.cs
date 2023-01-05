@@ -9,7 +9,7 @@ namespace ExiledUtils_REMAKE.Commands.Moderation
     [CommandHandler(typeof(RemoteAdminCommandHandler))]
     public class Jail : ICommand
     {
-        public string Command { get; }  = "jail";
+        public string Command { get; }  = "prison";
         public string[] Aliases { get; } = null;
         public string Description { get; } = "Jails a player.";
 

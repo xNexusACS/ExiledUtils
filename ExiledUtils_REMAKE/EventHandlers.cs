@@ -125,12 +125,12 @@ namespace ExiledUtils_REMAKE
                 if (ev.Player.ReferenceHub.serverRoles.RemoteAdmin)
                     ev.Player.BadgeHidden = true;
 
-            if (MainClass.hub.JailedPlayers.Contains(ev.Player) && ev.Player.Role.Type is not RoleTypeId.Tutorial)
+            if (MainClass.hub.JailedPlayers.Contains(ev.Player) && ev.Player.Role.Type is not RoleTypeId.Tutorial && Round.IsStarted)
             {
                 ev.Player.Role.Set(RoleTypeId.Tutorial);
                 
                 // Just in case if the FixTutorialPosition is disabled or fails to move the player
-                ev.Player.Position = new Vector3(40.297f, 1014.110f, -31.918f);
+                Timing.CallDelayed(1f, () => ev.Player.Position = new Vector3(40.185f, 1014.109f, -30.439f));
             }
         }
     }
